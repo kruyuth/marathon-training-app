@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>โปรแกรมฝึกซ้อมวิ่งมาราธอน 15 สัปดาห์</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    p.intro {
+      background-color: #fff;
+      padding: 10px 15px;
+      border-left: 4px solid #007ACC;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+    .week {
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #fff;
+      overflow: hidden;
+    }
+    .week-header {
+      cursor: pointer;
+      background-color: #e8e8e8;
+      padding: 8px 12px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .week-header:hover {
+      background-color: #d8d8d8;
+    }
+    .week-content {
+      display: none;
+      padding: 8px 12px;
+    }
+    .day {
+      margin-bottom: 8px;
+    }
+    .activity {
+      font-weight: bold;
+      color: #0b5d7a;
+    }
+    .instructions {
+      margin-left: 18px;
+      font-size: 0.9em;
+      color: #555;
+    }
+    ul.exercise-list {
+      background-color: #fff;
+      padding: 10px 15px;
+      border-radius: 4px;
+      border-left: 4px solid #007ACC;
+    }
+    ul.exercise-list li {
+      margin-bottom: 6px;
+    }
+    .toggle-icon {
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>โปรแกรมฝึกซ้อมวิ่งมาราธอน 15 สัปดาห์</h1>
+    <p class="intro">
+      โปรแกรมนี้ออกแบบเพื่อเตรียมตัววิ่งมาราธอนวันที่ 9 พฤศจิกายน 2568 โดยแบ่งวันจันทร์เป็นวันพัก และเน้นการวิ่งเพิ่มความทนทาน (endurance) รวมถึงฝึกกล้ามเนื้อขาและแกนกลางลำตัวด้วยท่าแบบไม่ใช้อุปกรณ์
+    </p>
+    <div id="weeks"></div>
+    <h2>ตัวอย่างท่าฝึกเสริมกล้ามเนื้อ</h2>
+    <ul class="exercise-list">
+      <li><strong>สควอท</strong> – ท่าพื้นฐานที่ใช้กล้ามเนื้อต้นขา ก้น หลังขา และต้นขาด้านใน ทำ 3 เซ็ต เซ็ตละ 12–15 ครั้ง【292192256565261†L328-L343】</li>
+      <li><strong>ลันจ์ถอยหลัง</strong> – ฝึกขาและการทรงตัว ทำข้างละ 12 ครั้ง 2–3 เซ็ต【292192256565261†L351-L367】</li>
+      <li><strong>Single‑Leg RDL</strong> – เสริมกล้ามเนื้อแฮมสตริงและก้นพร้อมปรับปรุงสมดุล【292192256565261†L375-L379】</li>
+      <li><strong>แพลงก์และแพลงก์ด้านข้าง</strong> – ฝึกกล้ามเนื้อแกนกลาง ค้าง 30–60 วินาที 3–4 เซ็ต【181040640513628†L234-L240】</li>
+      <li><strong>เดดบัก</strong> – ฝึกกล้ามเนื้อท้องลึกโดยไม่กดหลัง ทำ 10–12 ครั้งต่อข้าง 2–3 เซ็ต【292192256565261†L169-L179】</li>
+      <li><strong>สะพาน (Glute Bridge)</strong> – เสริมกล้ามเนื้อก้นและหลังส่วนล่าง ทำ 12–15 ครั้ง 2–3 เซ็ต【181040640513628†L209-L225】</li>
+    </ul>
+  </div>
+  <script>
+    // Define schedule for 15 weeks
+    const schedule = [
+      {
+        week: 1,
+        details: [
+          { day: 'อังคาร', activity: 'วิ่งสบาย 5 กม.', instructions: 'วิ่งจังหวะสบาย 5 กม. แล้วยืดเหยียด' },
+          { day: 'พุธ', activity: 'อินเทอร์วัล 5×400 ม. + core', instructions: 'วอร์มอัพ 10 นาที วิ่งเร็ว 5×400 ม. พัก 90 วินาที ทำแพลงก์ 3×40 วินาที' },
+          { day: 'พฤหัสฯ', activity: 'ฝึกขาและแกนกลาง', instructions: 'สควอท 3×15 ลันจ์ถอยหลัง 3×12 ต่อข้าง แพลงก์ 3×40 วินาที เดดบัก 2×12 ต่อข้าง' },
+          { day: 'ศุกร์', activity: 'Tempo run 5 กม.', instructions: 'วอร์ม 1 กม. วิ่งเพซกลาง 3 กม. คูลดาวน์ 1 กม.' },
+          { day: 'เสาร์', activity: 'Long run 8 กม.', instructions: 'วิ่งเพซช้า–คุยได้ 8 กม. จิบน้ำเป็นระยะ' },
+          { day: 'อาทิตย์', activity: 'Cross training & core', instructions: 'ปั่นจักรยาน/ว่ายน้ำ 30–40 นาที แล้วทำแพลงก์ด้านข้าง 2×30 วินาที' }
+        ]
+      },
+      {
+        week: 2,
+        details: [
+          { day: 'อังคาร', activity: 'วิ่งสบาย 6 กม.', instructions: 'วิ่งเพซสบาย 6 กม. แล้วยืดกล้ามเนื้อ' },
+          { day: 'พุธ', activity: 'อินเทอร์วัล 6×400 ม. + core', instructions: 'วอร์ม 10 นาที วิ่งเร็ว 6×400 ม. พัก 90 วินาที ทำแพลงก์ 3×45 วินาที' },
+          { day: 'พฤหัสฯ', activity: 'ฝึกขาและแกนกลาง', instructions: 'สควอท 3×15 ลันจ์ 3×12 Single‑Leg RDL 3×10 ต่อข้าง แพลงก์ด้านข้าง 2×30 วินาที' },
+          { day: 'ศุกร์', activity: 'Tempo run 6 กม.', instructions: 'วิ่ง 6 กม. มีช่วง 4 กม. ที่เพซมาราธอน' },
+          { day: 'เสาร์', activity: 'Long run 10 กม.', instructions: 'วิ่งเพซช้า 10 กม. ใส่ช่วงจ๊อกกิ้ง 1–2 นาทีทุก 3 กม.' },
+          { day: 'อาทิตย์', activity: 'Cross training & core', instructions: 'ปั่นจักรยาน/ว่ายน้ำ 40 นาที ทำสะพาน 3×15' }
+        ]
+      },
+      {
+        week: 3,
+        details: [
+          { day: 'อังคาร', activity: 'วิ่งสบาย 7 กม.', instructions: 'วิ่งเพซสบาย 7 กม. แล้วยืดกล้ามเนื้อ' },
+          { day: 'พุธ', activity: 'อินเทอร์วัล 8×400 ม. + core', instructions: 'วิ่งเร็ว 8×400 ม. หรือ 6×800 ม. พัก 2 นาที ทำแพลงก์ 3×45 วินาที' },
+          { day: 'พฤหัสฯ', activity: 'ฝึกขาและแกนกลาง', instructions: 'สควอท 3×15 ลันจ์ 3×12 Single‑Leg RDL 3×10 แพลงก์ 3×45 วินาที' },
+          { day: 'ศุกร์', activity: 'Tempo run 7 กม.', instructions: 'วอร์ม 1 กม. วิ่งเพซปานกลาง 5 กม. คูลดาวน์ 1 กม.' },
+          { day: 'เสาร์', activity: 'Long run 12 กม.', instructions: 'วิ่ง 12 กม. เพซช้า–คุยได้ เติมน้ำและเจลตามความเหมาะสม' },
+          { day: 'อาทิตย์', activity: 'Cross training & core', instructions: 'ปั่นจักรยาน 40 นาที และทำเดดบัก 3×12' }
+        ]
+      },
+      {
+        week: 4,
+        details: [
+          { day: 'อังคาร', activity: 'วิ่งสบาย 5 กม.', instructions: 'สัปดาห์ฟื้นตัว วิ่งจังหวะสบาย 5 กม.' },
+          { day: 'พุธ', activity: 'Hill repeats 6×200 ม. + core', instructions: 'วิ่งขึ้นเนิน 6×200 ม. พักเดินลง ทำแพลงก์ 3×40 วินาที' },
+          { day: 'พฤหัสฯ', activity: 'ฝึกขาและแกนกลาง', instructions: 'สควอท 3×12 ลันจ์ 3×10 แพลงก์ 3×40 วินาที สะพาน 3×12' },
+          { day: 'ศุกร์', activity: 'Tempo run 6 กม.', instructions: 'วิ่งเพซกลาง 6 กม. ให้รู้สึกสบาย' },
+          { day: 'เสาร์', activity: 'Long run 8 กม.', instructions: 'Long run แบบฟื้นตัว วิ่ง 8 กม. เพซช้า' },
+          { day: 'อาทิตย์', activity: 'Cross training & core', instructions: 'ปั่นจักรยาน/โยคะ 30 นาที และทำแพลงก์ด้านข้าง 2×30 วินาที' }
+        ]
+      },
+      {
+        week: 5,
+        details: [
+          { day: 'อังคาร', activity: 'วิ่งสบาย 8 กม.', instructions: 'วิ่งสบาย 8 กม. และยืดเหยียด' },
+          { day: 'พุธ', activity: 'อินเทอร์วัล 8×400 ม. + core', instructions: 'วิ่งเร็ว 8×400 ม. หรือ 6×800 ม. ทำแพลงก์ 3×45 วินาที' },
+          { day: 'พฤหัสฯ', activity: 'ฝึกขาและแกนกลาง', instructions: 'สควอท 3×15 ลันจ์ 3×12 Single‑Leg RDL 3×10 แพลงก์ 3×45 วินาที' },
+          { day: 'ศุกร์', activity: 'Tempo run 8 กม.', instructions: 'วอร์ม 1 กม. วิ่งเพซกลาง 6 กม. คูลดาวน์ 1 กม.' },
+          { day: 'เสาร์', activity: 'Long run 14 กม.', instructions: 'วิ่ง 14 กม. เพซช้า จัดเตรียมเจลหรือขนมทดสอบ' },
+          { day: 'อาทิตย์', activity: 'Cross training & core', instructions: 'ว่ายน้ำหรือปั่นจักรยาน 45 นาที และทำสะพาน 3×15' }
+        ]
+      },
+      {
+        week: 6,
+        details: [
+          { day: 'อังคาร', activity: 'วิ่งสบาย 8 กม.', instructions: 'วิ่งเพซสบาย 8 กม.' },
+          { day: 'พุธ', activity: 'อินเทอร์วัล 5×1 กม. + core', instructions: 'วิ่งเร็ว 5×1 กม. พัก 2 นาที ทำแพลงก์ 3×45 วินาที' },
+          { day: 'พฤหัสฯ', activity: 'ฝึกขาและแกนกลาง', instructions: 'สควอท 3×15 ลันจ์ 3×12 Single‑Leg RDL 3×10 แพลงก์ด้านข้าง 2×40 วินาที' },
+          { day: 'ศุกร์', activity: 'Tempo run 9 กม.', instructions: 'วิ่ง 9 กม. เพซปานกลาง' },
+          { day: 'เสาร์', activity: 'Long run 16 กม.', instructions: 'วิ่งเพซช้า 16 กม. ฝึกเติมน้ำและเกลือแร่' },
+          { day: 'อาทิตย์', activity: 'Cross training & core', instructions: 'ปั่นจักรยาน/ว่ายน้ำ 45 นาที และทำเดดบัก 3×12' }
+        ]
+      },
+      {
+        week: 7,
+        details: [
+          { day: 'อังคาร', activity: 'วิ่งสบาย 10 กม.', instructions: 'วิ่งจังหวะสบาย 10 กม.' },
+          { day: 'พุธ', activity: 'อินเทอร์วัล 6×1 กม. + core', instructions: 'วิ่งเร็ว 6×1 กม. พัก 2 นาที ทำแพลงก์ 3×45 วินาที' },
+          { day: 'พฤหัสฯ', activity: 'ฝึกขาและแกนกลาง', instructions: 'สควอท 3×15 ลันจ์ 3×12 Single‑Leg RDL 3×10 แพลงก์ด้านข้าง 2×45 วินาที' },
+          { day: 'ศุกร์', activity: 'Tempo run 10 กม.', instructions: 'วิ่งเพซปานกลาง 10 กม.' },
+          { day: 'เสาร์', activity: 'Long run 18 กม.', instructions: 'วิ่งเพซช้า 18 กม. ทดสอบการเติมพลังงานทุก 45 นาที' },
+          { day: 'อาทิตย์', activity: 'Cross training & core', instructions: 'ปั่นจักรยาน/ว่ายน้ำ 50 นาที และทำแพลงก์ 3×45 วินาที' }
+        ]
+      },
+      {
+        week: 8,
+        details: [
+          { day: 'อังคาร', activity: 'วิ่งสบาย 7 กม.', instructions: 'สัปดาห์ฟื้นตัว วิ่งสบาย 7 กม.' },
+          { day: 'พุธ', activity: 'Hill repeats 8×300 ม. + core', instructions: 'วิ่งขึ้นเนิน 8×300 ม. พักเดินลง ทำแพลงก์ 3×40 วินาที' },
+          { day: 'พฤหัสฯ', activity: 'ฝึกขาและแกนกลาง', instructions: 'สควอท 3×12 ลันจ์ 3×10 Single‑Leg RDL 3×8 แพลงก์ด้านข้าง 2×40 วินาที' },
+          { day: 'ศุกร์', activity: 'Tempo run 7 กม.', instructions: 'วิ่งเพซกลาง 7 กม.' },
+          { day: 'เสาร์', activity: 'Long run 14 กม.', instructions: 'วิ่ง 14 กม. เพซช้า เริ่มใส่ช่วงฝึกเพซมาราธอนระยะสั้น' },
+          { day: 'อาทิตย์', activity: 'Cross training & core', instructions: 'โยคะหรือปั่นจักรยาน 40 นาที แล้วทำแพลงก์ 3×40 วินาที' }
+        ]
+      },
+      {
+        week: 9,
+        details: [
+          { day: 'อังคาร', activity: 'วิ่งสบาย 10 กม.', instructions: 'วิ่งจังหวะสบาย 10 กม.' },
+          { day: 'พุธ', activity: 'อินเทอร์วัล 7×1 กม. + core', instructions: 'วิ่งเร็ว 7×1 กม. พัก 2 นาที ทำแพลงก์ 3×45 วินาที' },
+          { day: 'พฤหัสฯ', activity: 'ฝึกขาและแกนกลาง', instructions: 'สควอท 3×15 ลันจ์ 3×12 Single‑Leg RDL 3×10 แพลงก์ด้านข้าง 2×45 วินาที' },
+          { day: 'ศุกร์', activity: 'Tempo run 11 กม.', instructions: 'วิ่งเพซปานกลาง 11 กม.' },
+          { day: 'เสาร์', activity: 'Long run 20 กม.', instructions: 'วิ่งเพซช้า 20 กม. ทดสอบแผนโภชนาการและการเติมน้ำ' },
+          { day: 'อาทิตย์', activity: 'Cross training & core', instructions: 'ปั่นจักรยาน 50 นาที และทำแพลงก์ 3×45 วินาที' }
+        ]
+      },
+      {
+        week: 10,
+        details: [
+          { day: 'อังคาร', activity: 'วิ่งสบาย 10 กม.', instructions: 'วิ่งสบาย 10 กม.' },
+          { day: 'พุธ', activity: 'อินเทอร์วัล 6×800 ม. + core', instructions: 'วิ่งเร็ว 6×800 ม. พัก 2 นาที ทำแพลงก์ 3×45 วินาที' },
+          { day: 'พฤหัสฯ', activity: 'ฝึกขาและแกนกลาง', instructions: 'สควอท 3×15 ลันจ์ 3×12 Single‑Leg RDL 3×10 สะพาน 3×15 แพลงก์ 3×45 วินาที' },
+          { day: 'ศุกร์', activity: 'Tempo run 12 กม.', instructions: 'วอร์ม 1 กม. วิ่งเพซกลาง 10 กม. คูลดาวน์ 1 กม.' },
+          { day: 'เสาร์', activity: 'Long run 22 กม.', instructions: 'วิ่งเพซช้า 22 กม. ฝึกการทานเจลทุก 40–45 นาที' },
+          { day: 'อาทิตย์', activity: 'Cross training & core', instructions: 'ว่ายน้ำหรือปั่นจักรยาน 50 นาที และทำแพลงก์ด้านข้าง 2×45 วินาที' }
+        ]
+      },
+      {
+        week: 11,
+        details: [
+          { day: 'อังคาร', activity: 'วิ่งสบาย 12 กม.', instructions: 'วิ่งเพซสบาย 12 กม.' },
+          { day: 'พุธ', activity: 'อินเทอร์วัล 8×800 ม. + core', instructions: 'วิ่งเร็ว 8×800 ม. พัก 2 นาที ทำแพลงก์ 3×45 วินาที' },
+          { day: 'พฤหัสฯ', activity: 'ฝึกขาและแกนกลาง', instructions: 'สควอท 3×15 ลันจ์ 3×12 Single‑Leg RDL 3×10 แพลงก์ 3×45 วินาที สะพาน 3×15' },
+          { day: 'ศุกร์', activity: 'Tempo run 13 กม.', instructions: 'วิ่งเพซปานกลาง 13 กม.' },
+          { day: 'เสาร์', activity: 'Long run 24 กม.', instructions: 'วิ่งเพซช้า 24 กม. ทดสอบชุดและอาหารที่จะใช้ในวันแข่ง' },
+          { day: 'อาทิตย์', activity: 'Cross training & core', instructions: 'ปั่นจักรยาน 50 นาที และทำแพลงก์ด้านข้าง 2×45 วินาที' }
+        ]
+      },
+      {
+        week: 12,
+        details: [
+          { day: 'อังคาร', activity: 'วิ่งสบาย 9 กม.', instructions: 'สัปดาห์ฟื้นตัว วิ่งสบาย 9 กม.' },
+          { day: 'พุธ', activity: 'Hill repeats 10×200 ม. + core', instructions: 'วิ่งขึ้นเนิน 10×200 ม. พักเดินลง ทำแพลงก์ 3×40 วินาที' },
+          { day: 'พฤหัสฯ', activity: 'ฝึกขาและแกนกลาง', instructions: 'สควอท 3×12 ลันจ์ 3×10 Single‑Leg RDL 3×8 แพลงก์ 3×40 วินาที' },
+          { day: 'ศุกร์', activity: 'Tempo run 9 กม.', instructions: 'วิ่งเพซกลาง 9 กม.' },
+          { day: 'เสาร์', activity: 'Long run 18 กม.', instructions: 'วิ่งเพซช้า 18 กม. และปรับท่าทางวิ่งให้ผ่อนคลาย' },
+          { day: 'อาทิตย์', activity: 'Cross training & core', instructions: 'โยคะหรือปั่นจักรยาน 45 นาที และทำสะพาน 3×15' }
+        ]
+      },
+      {
+        week: 13,
+        details: [
+          { day: 'อังคาร', activity: 'วิ่งสบาย 12 กม.', instructions: 'วิ่งสบาย 12 กม.' },
+          { day: 'พุธ', activity: 'อินเทอร์วัล 6×1.2 กม. + core', instructions: 'วิ่งเร็ว 6×1.2 กม. พัก 2–3 นาที ทำแพลงก์ 3×45 วินาที' },
+          { day: 'พฤหัสฯ', activity: 'ฝึกขาและแกนกลาง', instructions: 'สควอท 3×15 ลันจ์ 3×12 Single‑Leg RDL 3×10 แพลงก์ 3×45 วินาที' },
+          { day: 'ศุกร์', activity: 'Tempo run 14 กม.', instructions: 'วิ่งเพซปานกลาง 14 กม.' },
+          { day: 'เสาร์', activity: 'Long run 26 กม.', instructions: 'วิ่งเพซช้า 26 กม. ติดตามอาการเมื่อยและฝึกโภชนาการ' },
+          { day: 'อาทิตย์', activity: 'Cross training & core', instructions: 'ปั่นจักรยาน 45 นาที และทำแพลงก์ด้านข้าง 2×45 วินาที' }
+        ]
+      },
+      {
+        week: 14,
+        details: [
+          { day: 'อังคาร', activity: 'วิ่งสบาย 12 กม.', instructions: 'วิ่งเพซสบาย 12 กม.' },
+          { day: 'พุธ', activity: 'อินเทอร์วัล 10×800 ม. + core', instructions: 'วิ่งเร็ว 10×800 ม. พัก 2 นาที ทำแพลงก์ 3×45 วินาที' },
+          { day: 'พฤหัสฯ', activity: 'ฝึกขาและแกนกลาง', instructions: 'สควอท 3×15 ลันจ์ 3×12 Single‑Leg RDL 3×10 แพลงก์ 3×45 วินาที สะพาน 3×15' },
+          { day: 'ศุกร์', activity: 'Tempo run 15 กม.', instructions: 'วิ่งเพซปานกลาง 15 กม.' },
+          { day: 'เสาร์', activity: 'Long run 28 กม.', instructions: 'วิ่งเพซช้า 28 กม. เป็นการซ้อมระยะยาวที่สุด' },
+          { day: 'อาทิตย์', activity: 'Cross training & core', instructions: 'ปั่นจักรยานหรือว่ายน้ำ 50 นาที และทำแพลงก์ด้านข้าง 2×45 วินาที' }
+        ]
+      },
+      {
+        week: 15,
+        details: [
+          { day: 'อังคาร', activity: 'วิ่งสบาย 10 กม.', instructions: 'เริ่มลดระยะ วิ่งสบาย 10 กม.' },
+          { day: 'พุธ', activity: 'อินเทอร์วัล 4×800 ม. + core', instructions: 'วิ่งเร็ว 4×800 ม. พัก 2 นาที ทำแพลงก์ 3×45 วินาที' },
+          { day: 'พฤหัสฯ', activity: 'ฝึกขาและแกนกลาง (เบา)', instructions: 'สควอท 2×12 ลันจ์ 2×10 แพลงก์ 2×40 วินาที สะพาน 2×12' },
+          { day: 'ศุกร์', activity: 'วิ่งสบาย 8 กม. (มี 3 กม. pace มาราธอน)', instructions: 'วิ่งเบา 5 กม. แล้วเพิ่มเพซมาราธอน 3 กม. คูลดาวน์ 1 กม.' },
+          { day: 'เสาร์', activity: 'วิ่งเบา 5 กม.', instructions: 'วิ่งจ๊อกกิ้ง 5 กม. เพื่อยืดกล้ามเนื้อ เตรียมตัวก่อนวันแข่ง' },
+          { day: 'อาทิตย์', activity: 'วันแข่งขันมาราธอน', instructions: 'แข่งมาราธอน 42.195 กม.! พักผ่อนให้เพียงพอหลังวิ่ง' }
+        ]
+      }
+    ];
+
+    function renderSchedule() {
+      const container = document.getElementById('weeks');
+      schedule.forEach(week => {
+        const weekDiv = document.createElement('div');
+        weekDiv.className = 'week';
+        const header = document.createElement('div');
+        header.className = 'week-header';
+        header.innerHTML = `<span>สัปดาห์ ${week.week}</span><span class="toggle-icon">+</span>`;
+        const content = document.createElement('div');
+        content.className = 'week-content';
+        week.details.forEach(item => {
+          const dayDiv = document.createElement('div');
+          dayDiv.className = 'day';
+          dayDiv.innerHTML = `<span class="activity">${item.day}: ${item.activity}</span><div class="instructions">${item.instructions}</div>`;
+          content.appendChild(dayDiv);
+        });
+        header.addEventListener('click', () => {
+          const visible = content.style.display === 'block';
+          content.style.display = visible ? 'none' : 'block';
+          header.querySelector('.toggle-icon').textContent = visible ? '+' : '−';
+        });
+        weekDiv.appendChild(header);
+        weekDiv.appendChild(content);
+        container.appendChild(weekDiv);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', renderSchedule);
+  </script>
+</body>
+</html>
